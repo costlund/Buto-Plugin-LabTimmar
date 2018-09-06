@@ -1,0 +1,65 @@
+-
+  type: div
+  attribute:
+    class: well
+  innerHTML:
+    -
+      type: p
+      innerHTML: calendar:X-WR-CALNAME
+    -
+      type: p
+      innerHTML:
+        -
+          type: span
+          innerHTML: data:start
+        -
+          type: span
+          innerHTML: ' to '
+        -
+          type: span
+          innerHTML: data:end
+    -
+      type: i
+      innerHTML: calendar:X-WR-CALDESC
+-
+  type: h3
+  innerHTML: Projects
+-
+  type: div
+  innerHTML: projects:list
+-
+  type: i
+  innerHTML: Time not match any projects.
+-
+  type: table
+  attribute:
+    class: table
+  innerHTML:
+    -
+      type: thead
+      innerHTML:
+        -
+          type: tr
+          innerHTML:
+            -
+              type: th
+              innerHTML: Summary
+            -
+              type: th
+              innerHTML: Description
+            -
+              type: th
+              innerHTML: Date
+            -
+              type: th
+              innerHTML: Time
+            -
+              type: th
+              innerHTML: Minutes
+            -
+              type: th
+              innerHTML: Hours
+    -
+      type: tbody
+      innerHTML: time_no_match:table_tbody_tr
+  

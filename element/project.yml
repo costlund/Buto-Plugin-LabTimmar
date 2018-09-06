@@ -1,0 +1,107 @@
+type: div
+attribute:
+  class: well
+innerHTML:
+  -
+    type: h2
+    innerHTML: rs:summary
+  -
+    type: div
+    innerHTML: 
+      -
+        type: i
+        innerHTML: rs:description
+  -
+    type: div
+    innerHTML:
+      -
+        type: span
+        innerHTML: rs:start
+      -
+        type: span
+        innerHTML: ' to '
+      -
+        type: span
+        innerHTML: rs:end
+  -
+    type: div
+    innerHTML:
+      -
+        type: span
+        innerHTML: 'Minutes: '
+      -
+        type: span
+        innerHTML: rs:minutes
+  -
+    type: div
+    innerHTML:
+      -
+        type: span
+        innerHTML: 'Hours: '
+      -
+        type: span
+        innerHTML: rs:hours
+  -
+    type: div
+    innerHTML:
+      -
+        type: span
+        innerHTML: 'Hours approx: '
+      -
+        type: span
+        innerHTML: params:hours_approx
+  -
+    type: div
+    innerHTML:
+      -
+        type: span
+        innerHTML: 'Hours percentage: '
+      -
+        type: span
+        innerHTML: params:hours_percentage
+  -
+    type: table
+    attribute:
+      class: table
+    innerHTML:
+      -
+        type: thead
+        innerHTML:
+          -
+            type: tr
+            innerHTML:
+              -
+                type: th
+                innerHTML: Summary
+              -
+                type: th
+                innerHTML: Description
+              -
+                type: th
+                innerHTML: Date
+              -
+                type: th
+                innerHTML: Time
+              -
+                type: th
+                innerHTML: Minutes
+              -
+                type: th
+                innerHTML: Hours
+      -
+        type: tbody
+        innerHTML: time:table_tbody_tr
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

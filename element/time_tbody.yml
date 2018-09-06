@@ -1,0 +1,20 @@
+type: tr
+innerHTML:
+  -
+    type: td
+    innerHTML: rs:summary
+  -
+    type: td
+    innerHTML: rs:description
+  -
+    type: td
+    innerHTML: rs:date
+  -
+    type: td
+    innerHTML: rs:time
+  -
+    type: td
+    innerHTML: rs:minutes
+  -
+    type: td
+    innerHTML: rs:hours
