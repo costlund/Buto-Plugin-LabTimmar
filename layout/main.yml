@@ -1,0 +1,95 @@
+settings:
+  path: '2/innerHTML'
+content:
+  -
+    type: style
+    innerHTML: '.wf_form_row{margin-top:10px;}'
+  -
+    type: div
+    attribute:
+      class: 'container-fluid'
+    innerHTML:
+      -
+        type: nav
+        attribute:
+          class: 'navbar navbar-default'
+        innerHTML:
+          -
+            type: div
+            attribute:
+              class: navbar-header
+            innerHTML:
+              -
+                type: button
+                attribute:
+                  type: button
+                  class: 'navbar-toggle collapsed'
+                  data-toggle: collapse
+                  data-target: '#bs-example-navbar-collapse-2'
+                  aria-expanded: 'false'
+                innerHTML:
+                  0:
+                    type: span
+                    attribute:
+                      class: icon-bar
+                  1:
+                    type: span
+                    attribute:
+                      class: icon-bar
+                  3:
+                    type: span
+                    attribute:
+                      class: icon-bar
+              -
+                type: a
+                attribute:
+                  class: navbar-brand
+                  #href: /doc/home
+                  onclick: "start();"
+                innerHTML:
+                  -
+                    type: span
+                    attribute:
+                      class: 'glyphicon glyphicon-fire'
+                      aria-hidden: true
+                  -
+                    type: strong
+                    innerHTML: yml:/plugin/lab/timmar/data/data.yml:title
+          -
+            type: div
+            attribute:
+              class: 'collapse navbar-collapse'
+              id: bs-example-navbar-collapse-2
+            innerHTML:
+              -
+                type: ul
+                attribute:
+                  class: 'nav navbar-nav'
+                innerHTML:
+#                  -
+#                    type: li
+#                    innerHTML:
+#                      -
+#                        type: a
+#                        innerHTML: List
+#                        attribute:
+#                          onclick: PluginWfAjax.update('start')
+                  -
+                    type: li
+                    innerHTML:
+                      -
+                        type: a
+                        innerHTML:
+                          -
+                            type: span
+                            attribute:
+                              class: 'glyphicon glyphicon-plus'
+                              aria-hidden: true
+                        attribute:
+                          onclick: "PluginWfBootstrapjs.modal({id: 'lab_timmar_form', url: '/'+app.class+'/form', lable: 'Add'});"
+  -
+    type: div
+    attribute:
+      class: 'container-fluid'
+    innerHTML:
+      

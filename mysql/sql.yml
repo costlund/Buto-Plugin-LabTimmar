@@ -1,0 +1,111 @@
+lab_timmar_calendar_select:
+  sql: |
+    select 
+    id,
+    account_id,
+    filename,
+    name,
+    start,
+    end
+    from lab_timmar_calendar 
+    where account_id='[SESSION:user_id]'
+    order by name
+    ;
+  paramszzz:
+    id:
+      type: s
+      value: _
+  select:
+    - id
+    - account_id
+    - filename
+    - name
+    - start
+    - end
+lab_timmar_calendar_select_one:
+  sql: |
+    select 
+    id,
+    account_id,
+    filename,
+    name,
+    start,
+    end
+    from lab_timmar_calendar 
+    where account_id='[SESSION:user_id]' and id=?
+    ;
+  params:
+    -
+      type: s
+      value: rs:id
+  select:
+    - id
+    - account_id
+    - filename
+    - name
+    - start
+    - end
+lab_timmar_calendar_insert_one:
+  sql: |
+    insert into lab_timmar_calendar (id, account_id) values (?, '[SESSION:user_id]');
+    ;
+  params:
+    -
+      type: s
+      value: rs:id
+lab_timmar_calendar_update_one:
+  sql: |
+    update lab_timmar_calendar set
+    filename=?,
+    name=?,
+    start=?,
+    end=?
+    where account_id='[SESSION:user_id]' and id=?
+    ;
+  params:
+    -
+      type: s
+      value: rs:filename
+    -
+      type: s
+      value: rs:name
+    -
+      type: s
+      value: rs:start
+    -
+      type: s
+      value: rs:end
+    -
+      type: s
+      value: rs:id
+lab_timmar_calendar_delete_one:
+  sql: |
+    delete from lab_timmar_calendar 
+    where account_id='[SESSION:user_id]' and id=?
+    ;
+  params:
+    -
+      type: s
+      value: rs:id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

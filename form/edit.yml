@@ -1,0 +1,46 @@
+url: capture
+ajax: true
+submit_value: Save
+id: frm_lab_timmar
+items:
+  id:
+    type: hidden
+    label: id
+    default: rs:id
+  name:
+    type: varchar
+    label: Name
+    mandatory: true
+    default: rs:name
+  filename:
+    type: varchar
+    label: Filename
+    mandatory: true
+    default: rs:filename
+  start:
+    type: date
+    label: Start
+    default: rs:start
+  end:
+    type: date
+    label: End
+    default: rs:end
+renderzzz:
+  plugin: software/main
+  method: form_version_render
+capture:
+  plugin: lab/timmar
+  method: capture
+buttonszzz:
+  close:
+    type: a
+    attribute:
+      class: btn btn-default
+      onclick: "PluginMemb_incMain.closeModal('modal_vote_edit')"
+    innerHTML: Close
+elements_belowzzz:
+  -
+    type: script
+    innerHTML: "document.getElementById('frm_weight_value').onchange = function(){ this.value = this.value.replace(',', '.'); }"
+    
+    

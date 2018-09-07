@@ -1,0 +1,8 @@
+type: widget
+data:
+  plugin: 'lab/timmar'
+  method: report
+  data:
+    filename: rs:filename
+    start: rs:start
+    end: rs:end

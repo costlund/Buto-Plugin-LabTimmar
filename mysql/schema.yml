@@ -1,0 +1,41 @@
+tables:
+  lab_timmar_calendar:
+    field:
+      id:
+        primary_key: true
+        type: varchar(50)
+        not_null: true
+      account_id:
+        type: varchar(50)
+        default: 'null'
+        foreing_key:
+          reference_table: account
+          reference_field: id
+          on_delete: CASCADE
+          on_update: CASCADE        
+      filename:
+        type: varchar(255)
+      name:
+        type: varchar(255)
+      start:
+        type: date
+      end:
+        type: date
+extra:
+  _description: Extra field to add to each table if not exist in schema.
+  field:
+    created_at:
+      type: timestamp
+      default: CURRENT_TIMESTAMP
+    updated_at:
+      type: timestamp
+      default: 'null'
+    created_by:
+      type: varchar(50)
+    updated_by:
+      type: varchar(50)
+      
+        
+        
+        
+        

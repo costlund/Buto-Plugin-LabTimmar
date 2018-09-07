@@ -1,0 +1,81 @@
+type: div
+attribute:
+  class: col-sm-4
+innerHTML:
+  -
+    type: div
+    attribute:
+      class: alert alert-success
+    innerHTML:
+#      -
+#        type: span
+#        innerHTML: 'globals:sys/class'
+      -
+        type: h1
+        innerHTML: rs:name
+      -
+        type: div
+        attribute:
+          class: row
+        innerHTML:
+          -
+            type: div
+            attribute:
+              class: col-sm-12
+            innerHTML:
+              -
+                type: div
+                innerHTML:
+                  -
+                    type: span
+                    innerHTML: 'Start:'
+                  -
+                    type: span
+                    innerHTML: rs:start
+              -
+                type: div
+                innerHTML:
+                  -
+                    type: span
+                    innerHTML: 'End:'
+                  -
+                    type: span
+                    innerHTML: rs:end
+              -
+                type: div
+                innerHTML:
+                  -
+                    type: a
+                    attribute:
+                      onclick: edit:onclick
+                    innerHTML:
+                      -
+                        type: span
+                        attribute:
+                          class: 'glyphicon glyphicon-edit'
+                          aria-hidden: true
+                      
+                  -
+                    type: a
+                    attribute:
+                      onclick: view:onclick
+                    innerHTML:
+                      -
+                        type: span
+                        attribute:
+                          class: 'glyphicon glyphicon-open'
+                          aria-hidden: true
+                  -
+                    type: a
+                    attribute:
+                      onclick: delete:onclick
+                      style: 'float:right'
+                    innerHTML:
+                      -
+                        type: span
+                        attribute:
+                          class: 'glyphicon glyphicon-trash'
+                          aria-hidden: true
+                
+                
+                

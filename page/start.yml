@@ -1,0 +1,38 @@
+settings:
+  layout:
+    - html
+    - main
+  title: yml:/plugin/lab/timmar/data/data.yml:title
+content:
+  -
+    type: script
+    innerHTML: rs:json
+  -
+    type: script
+    innerHTML: console.log(app.class)
+  -
+    type: p
+    attribute:
+      id: hidden_class
+      style: 'display:none'
+    innerHTML: '[[class]]'
+  -
+    type: div
+    attribute:
+      id: start
+    innerHTML: 'start...'
+  -
+    type: div
+    attribute:
+      id: hidden_div
+      style: 'display:none'
+    innerHTML: ''
+  -
+    type: script
+    innerHTML: |
+      function start(){
+        PluginWfAjax.load('start', '/[[class]]/list');
+      }
+      start();
+
+  
