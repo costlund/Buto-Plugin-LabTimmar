@@ -1,6 +1,21 @@
 -
   type: div
   attribute:
+    style: 'text-align:right'
+  innerHTML:
+    -
+      type: a
+      attribute:
+        onclick: "PluginWfAjax.update('start');"
+      innerHTML:
+        -
+          type: span
+          attribute:
+            class: 'glyphicon glyphicon-refresh'
+            aria-hidden: true
+-
+  type: div
+  attribute:
     class: well
   innerHTML:
     -
