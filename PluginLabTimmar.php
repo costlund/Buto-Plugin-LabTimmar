@@ -87,6 +87,21 @@ class PluginLabTimmar{
     return new PluginWfArray($this->getReport($filename, $start, $end));
   }
   private function getReport($filename, $start = null, $end = null){
+      /**
+       * Date filter.
+       * Uppercase are dates from settings.
+       * Lowercase are dates from projects.
+       * One of three checks must match for project to show up.
+       ********************************************************
+       *          *  START   *          *   END    *          *
+       ********************************************************
+       *          *          *   end    *          *          *
+       ********************************************************
+       *          *          *  start   *          *          *
+       ********************************************************
+       *   start  *          *          *          *   end    *
+       ********************************************************
+       */
     wfPlugin::includeonce('google/calendar');
     wfPlugin::includeonce('wf/array');
     if(is_null($start)){
@@ -111,18 +126,38 @@ class PluginLabTimmar{
     foreach ($google->getAllTimeEvents() as $key => $value) {
       $item = new PluginWfArray($value);
       $time = new PluginWfArray();
-       $time->set('summary',      $this->clean($item->get('summary')));
-       $time->set('key',          $this->key($item->get('summary')));
-       $time->set('description',  $this->clean($item->get('description')));
-       $time->set('start',        $this->date($item->get('start')));
-       $time->set('end',          $this->date($item->get('end')));
-       $time->set('date',          $this->date(date('Y-m-d', strtotime($item->get('start')))));
-       $time->set('time',          $this->date(date('H:i', strtotime($item->get('start')))).'-'.$this->date(date('H:i', strtotime($item->get('end'))))  );
-       $time->set('minutes',      $this->minutes($item->get('start'), $item->get('end')));
-       $time->set('hours',        $this->hours($time->get('minutes')));
-       $time->set('match',        false); //Sets to true if match a project.
-       $times->set($key, $time->get());
+      $time->set('summary',      $this->clean($item->get('summary')));
+      $time->set('key',          $this->key($item->get('summary')));
+      $time->set('description',  $this->clean($item->get('description')));
+      $time->set('start',        $this->date($item->get('start')));
+      $time->set('end',          $this->date($item->get('end')));
+      $time->set('date',          $this->date(date('Y-m-d', strtotime($item->get('start')))));
+      $time->set('time',          $this->date(date('H:i', strtotime($item->get('start')))).'-'.$this->date(date('H:i', strtotime($item->get('end'))))  );
+      $time->set('minutes',      $this->minutes($item->get('start'), $item->get('end')));
+      $time->set('hours',        $this->hours($time->get('minutes')));
+      $time->set('match',        false); //Sets to true if match a project.
+      $time->set('start_stt',   strtotime($time->get('start')));
+      $time->set('end_stt',     strtotime($time->get('end')));
+      /**
+       * Date filter.
+       */
+      $filter = false;
+      if(     $time->get('end_stt')   >= $data->get('start_stt') && $time->get('end_stt')   <= $data->get('end_stt')){
+        $filter = true;
+      }elseif($time->get('start_stt') >= $data->get('start_stt') && $time->get('start_stt') <= $data->get('end_stt')){
+        $filter = true;
+      }elseif($time->get('start_stt') <= $data->get('start_stt') && $time->get('end_stt')   >= $data->get('end_stt')){
+        $filter = true;
+      }
+      if(!$filter){
+        continue;
+      }
+      /**
+       * 
+       */
+      $times->set($key, $time->get());
     }
+    //wfHelp::yml_dump($times, true);
     $projects = new PluginWfArray();
     foreach ($google->getAllDayEvents() as $key => $value) {
       /**
@@ -142,18 +177,6 @@ class PluginLabTimmar{
       $project->set('end_stt', strtotime($project->get('end')));
       /**
        * Date filter.
-       * Uppercase are dates from settings.
-       * Lowercase are dates from projects.
-       * One of three checks must match for project to show up.
-       ********************************************************
-       *          *  START   *          *   END    *          *
-       ********************************************************
-       *          *          *   end    *          *          *
-       ********************************************************
-       *          *          *  start   *          *          *
-       ********************************************************
-       *   start  *          *          *          *   end    *
-       ********************************************************
        */
       $filter = false;
       if(     $project->get('end_stt')   >= $data->get('start_stt') && $project->get('end_stt')   <= $data->get('end_stt')){
@@ -239,11 +262,12 @@ class PluginLabTimmar{
   public function widget_report($data){
     wfPlugin::includeonce('wf/array');
     $data = new PluginWfArray($data);
-    $element = $this->getElementCalendar($data->get('data/filename'));
+    $element = $this->getElementCalendar($data->get('data'));
     wfDocument::renderElement($element->get());
   }
-  private function getElementCalendar($filename, $start=null, $end=null){
-    $report = $this->getReportAsObject($filename, $start, $end);
+  private function getElementCalendar($data){
+    $data = new PluginWfArray($data);
+    $report = $this->getReportAsObject($data->get('filename'), $data->get('start'), $data->get('end'));
     if(!$report->get('success')){
       exit("Could not find goolge calender via link $filename.");
     }
