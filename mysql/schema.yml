@@ -7,7 +7,6 @@ tables:
         not_null: true
       account_id:
         type: varchar(50)
-        default: 'null'
         foreing_key:
           reference_table: account
           reference_field: id
@@ -29,7 +28,6 @@ extra:
       default: CURRENT_TIMESTAMP
     updated_at:
       type: timestamp
-      default: 'null'
     created_by:
       type: varchar(50)
     updated_by:
