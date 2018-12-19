@@ -46,6 +46,11 @@ content:
               plugin: eternicode/bootstrapdatepicker
               method: include
               data: null
+          -
+            type: widget
+            data:
+              plugin: form/form_v1
+              method: include
       body:
         type: body
         innerHTML: 'body...'
