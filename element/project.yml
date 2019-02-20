@@ -12,6 +12,24 @@ innerHTML:
         type: i
         innerHTML: rs:description
   -
+    type: h3
+    settings:
+      enabled: rs:has_params
+    innerHTML: Params 
+  -      
+    type: widget
+    settings:
+      enabled: rs:has_params
+    data:
+      plugin: wf/table
+      method: render_one
+      data:
+        i18n: false
+        rs: rs:params
+  -
+    type: h3
+    innerHTML: Summary 
+  -
     type: div
     innerHTML:
       -
@@ -28,10 +46,10 @@ innerHTML:
     innerHTML:
       -
         type: span
-        innerHTML: 'Minutes: '
+        innerHTML: 'Hours approx: '
       -
         type: span
-        innerHTML: rs:minutes
+        innerHTML: params:hours_approx
   -
     type: div
     innerHTML:
@@ -46,19 +64,13 @@ innerHTML:
     innerHTML:
       -
         type: span
-        innerHTML: 'Hours approx: '
-      -
-        type: span
-        innerHTML: params:hours_approx
-  -
-    type: div
-    innerHTML:
-      -
-        type: span
         innerHTML: 'Hours percentage: '
       -
         type: span
         innerHTML: params:hours_percentage
+  -
+    type: h3
+    innerHTML: Time
   -
     type: table
     attribute:

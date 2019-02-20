@@ -10,6 +10,7 @@ class PluginLabTimmar{
       wfPlugin::includeonce('wf/form_v2');
       wfPlugin::includeonce('wf/array');
       wfPlugin::includeonce('wf/yml');
+      wfPlugin::includeonce('string/array');
       /**
        * Enable.
        */
@@ -223,6 +224,26 @@ class PluginLabTimmar{
       $time->sort('start');
       $project->set('time', $time->get());
       $projects->set($key, $project->get());
+    }
+    /**
+     * Params
+     */
+    foreach ($projects->get() as $key => $value) {
+      $item = new PluginWfArray($value);
+      //wfHelp::yml_dump($item->get('description'));
+      $x = new PluginStringArray();
+      $d = $x->from_br($item->get('description'));
+      foreach ($d as $v) {
+        if(strstr($v, ': ')){
+          $v = new PluginWfArray($x->from_char($v, ': '));
+          $projects->set("$key/params/".$v->get('0'), $v->get('1'));
+        }
+      }
+      if($projects->get("$key/params")){
+        $projects->set("$key/has_params", true);
+      }else{
+        $projects->set("$key/has_params", false);
+      }
     }
     /**
      * Time not match any project.
