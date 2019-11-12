@@ -13,31 +13,22 @@ innerHTML:
         innerHTML: rs:description
   -
     type: h3
-    settings:
-      enabled: rs:has_params
-    innerHTML: Params 
-  -      
-    type: widget
-    settings:
-      enabled: rs:has_params
-    data:
-      plugin: wf/table
-      method: render_one
-      data:
-        i18n: false
-        rs: rs:params
-  -
-    type: h3
     innerHTML: Summary 
   -
     type: div
     innerHTML:
       -
-        type: span
-        innerHTML: rs:start
+        type: strong
+        innerHTML: 'Date start: '
       -
         type: span
-        innerHTML: ' to '
+        innerHTML: rs:start
+  -
+    type: div
+    innerHTML:
+      -
+        type: strong
+        innerHTML: 'Date end: '
       -
         type: span
         innerHTML: rs:end
@@ -45,7 +36,7 @@ innerHTML:
     type: div
     innerHTML:
       -
-        type: span
+        type: strong
         innerHTML: 'Hours approx: '
       -
         type: span
@@ -54,7 +45,7 @@ innerHTML:
     type: div
     innerHTML:
       -
-        type: span
+        type: strong
         innerHTML: 'Hours: '
       -
         type: span
@@ -63,11 +54,20 @@ innerHTML:
     type: div
     innerHTML:
       -
-        type: span
+        type: strong
         innerHTML: 'Hours percentage: '
       -
         type: span
         innerHTML: params:hours_percentage
+  -
+    type: div
+    innerHTML:
+      -
+        type: strong
+        innerHTML: 'Work percentage: '
+      -
+        type: span
+        innerHTML: params:work_percentage
   -
     type: h3
     innerHTML: Time
@@ -103,6 +103,21 @@ innerHTML:
       -
         type: tbody
         innerHTML: time:table_tbody_tr
+  -
+    type: h3
+    settings:
+      enabled: rs:has_params
+    innerHTML: Params 
+  -      
+    type: widget
+    settings:
+      enabled: rs:has_params
+    data:
+      plugin: wf/table
+      method: render_one
+      data:
+        i18n: false
+        rs: rs:params
   
   
   
