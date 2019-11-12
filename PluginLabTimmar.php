@@ -111,6 +111,9 @@ class PluginLabTimmar{
     if(is_null($end)){
       $end = date('Y-m-d', strtotime(date('Y-m-d'). ' + 365 days'));
     }
+    if(strlen($end)==10){
+      $end .= ' 23:59:59';
+    }
     $data = new PluginWfArray();
     $data->set('filename', $filename);
     $data->set('start', $start);
