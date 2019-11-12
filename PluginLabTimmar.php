@@ -7,22 +7,18 @@ class PluginLabTimmar{
       /**¨
        * ¨Include.
        */
-      wfPlugin::includeonce('wf/form_v2');
       wfPlugin::includeonce('wf/array');
       wfPlugin::includeonce('wf/yml');
       wfPlugin::includeonce('string/array');
       /**
        * Enable.
        */
-      wfPlugin::enable('wf/bootstrap');
       wfPlugin::enable('form/form_v1');
       wfPlugin::enable('wf/table');
-      wfPlugin::enable('wf/ajax');
-      wfPlugin::enable('wf/bootstrapjs');
-      wfPlugin::enable('wf/dom');
-      wfPlugin::enable('wf/callbackjson');
-      wfPlugin::enable('eternicode/bootstrapdatepicker');
-      
+      wfPlugin::enable('theme/include');
+      /**
+       * 
+       */
       if(!wfUser::hasRole('client')){
         exit('Role issue.');
       }
@@ -39,7 +35,6 @@ class PluginLabTimmar{
        * Settings.
        */
       $this->settings = new PluginWfArray(wfArray::get($GLOBALS, 'sys/settings/plugin_modules/'.wfArray::get($GLOBALS, 'sys/class').'/settings'));
-      //$this->settings = wfPlugin::getPluginSettings('lab/timmar', true);
     }
   }
   private function db_open(){
@@ -469,17 +464,3 @@ class PluginLabTimmar{
     return array("location.reload()");
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

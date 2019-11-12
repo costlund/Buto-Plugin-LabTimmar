@@ -13,44 +13,13 @@ content:
         type: head
         innerHTML:
           -
-            type: title
-            innerHTML: 'globals:sys/page/settings/title'
-          -
             type: widget
             data:
-              plugin: 'twitter/bootstrap335v'
-              method: all
-          -
-            type: widget
-            data:
-              plugin: 'wf/ajax'
+              plugin: 'theme/include'
               method: include
-          -
-            type: widget
-            data:
-              plugin: 'wf/bootstrapjs'
-              method: include
-          -
-            type: widget
-            data:
-              plugin: 'wf/callbackjson'
-              method: include
-          -
-            type: widget
-            data:
-              plugin: 'wf/dom'
-              method: include
-          -
-            type: widget
-            data:
-              plugin: eternicode/bootstrapdatepicker
-              method: include
-              data: null
-          -
-            type: widget
-            data:
-              plugin: form/form_v1
-              method: include
+              data:
+                bootswatch:
+                  theme: Cerulean
       body:
         type: body
         innerHTML: 'body...'

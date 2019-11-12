@@ -1,9 +1,13 @@
-version: '1.1'
+version: '1.2.0'
 history:
-  '1.1':
+  '1.2.0':
+    date: '2019-11-12'
+    title: Bootstrap 4
+    description: 'Upgrade to Bootstrap 4.'
+  '1.1.0':
     date: '2019-02-20'
     description: 'Improvements.'
-  '1.0':
+  '1.0.0':
     date: '2019-01-09'
     description: 'First version.'
 plugin:

@@ -7,9 +7,6 @@ innerHTML:
     attribute:
       class: alert alert-success
     innerHTML:
-#      -
-#        type: span
-#        innerHTML: 'globals:sys/class'
       -
         type: h1
         innerHTML: rs:name
@@ -48,34 +45,16 @@ innerHTML:
                     type: a
                     attribute:
                       onclick: edit:onclick
-                    innerHTML:
-                      -
-                        type: span
-                        attribute:
-                          class: 'glyphicon glyphicon-edit'
-                          aria-hidden: true
-                      
+                    innerHTML: edit
                   -
                     type: a
                     attribute:
                       onclick: view:onclick
-                    innerHTML:
-                      -
-                        type: span
-                        attribute:
-                          class: 'glyphicon glyphicon-open'
-                          aria-hidden: true
+                    innerHTML: open
                   -
                     type: a
                     attribute:
                       onclick: delete:onclick
                       style: 'float:right'
-                    innerHTML:
-                      -
-                        type: span
-                        attribute:
-                          class: 'glyphicon glyphicon-trash'
-                          aria-hidden: true
-                
-                
+                    innerHTML: trash
                 

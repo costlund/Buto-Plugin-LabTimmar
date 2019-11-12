@@ -1,16 +1,10 @@
 type: div
 attribute:
-  class: well
+  class: alert alert-secondary
 innerHTML:
   -
-    type: h2
+    type: h1
     innerHTML: rs:summary
-  -
-    type: div
-    innerHTML: 
-      -
-        type: i
-        innerHTML: rs:description
   -
     type: h3
     innerHTML: Summary 
@@ -118,6 +112,15 @@ innerHTML:
       data:
         i18n: false
         rs: rs:params
+  -
+    type: h3
+    innerHTML: Description
+  -
+    type: div
+    innerHTML: 
+      -
+        type: i
+        innerHTML: rs:description
   
   
   

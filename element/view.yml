@@ -13,10 +13,11 @@
           attribute:
             class: 'glyphicon glyphicon-refresh'
             aria-hidden: true
+          innerHTML: refresh
 -
   type: div
   attribute:
-    class: well
+    class: alert alert-success
   innerHTML:
     -
       type: p
@@ -43,38 +44,43 @@
   type: div
   innerHTML: projects:list
 -
-  type: i
-  innerHTML: Time not match any projects.
--
-  type: table
+  type: div
   attribute:
-    class: table
+    class: alert alert-warning
   innerHTML:
     -
-      type: thead
+      type: i
+      innerHTML: Time not match any projects.
+    -
+      type: table
+      attribute:
+        class: table
       innerHTML:
         -
-          type: tr
+          type: thead
           innerHTML:
             -
-              type: th
-              innerHTML: Summary
-            -
-              type: th
-              innerHTML: Description
-            -
-              type: th
-              innerHTML: Date
-            -
-              type: th
-              innerHTML: Time
-            -
-              type: th
-              innerHTML: Minutes
-            -
-              type: th
-              innerHTML: Hours
-    -
-      type: tbody
-      innerHTML: time_no_match:table_tbody_tr
+              type: tr
+              innerHTML:
+                -
+                  type: th
+                  innerHTML: Summary
+                -
+                  type: th
+                  innerHTML: Description
+                -
+                  type: th
+                  innerHTML: Date
+                -
+                  type: th
+                  innerHTML: Time
+                -
+                  type: th
+                  innerHTML: Minutes
+                -
+                  type: th
+                  innerHTML: Hours
+        -
+          type: tbody
+          innerHTML: time_no_match:table_tbody_tr
   
