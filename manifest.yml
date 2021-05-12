@@ -1,5 +1,9 @@
-version: 1.2.0
+version: 1.2.1
 history:
+  1.2.1:
+    date: '2021-05-12'
+    title: Versions
+    description: 'Versions update.'
   1.2.0:
     date: '2019-11-12'
     title: 'Bootstrap 4'
@@ -22,7 +26,7 @@ plugin:
     version: 1.3.0
   -
     name: wf/mysql
-    version: 1.14.0
+    version: 1.14.1
   -
     name: google/calendar
     version: null
@@ -34,7 +38,7 @@ plugin:
     version: 1.51.1
   -
     name: wf/table
-    version: 1.22.0
+    version: 1.23.0
   -
     name: wf/ajax
     version: 1.4.1
