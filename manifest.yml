@@ -1,5 +1,9 @@
-version: 1.2.2
+version: 1.2.3
 history:
+  1.2.3:
+    date: '2021-06-02'
+    title: Versions
+    description: 'Versions update.'
   1.2.2:
     date: '2021-05-25'
     title: Versions
@@ -48,7 +52,7 @@ plugin:
     version: 1.4.1
   -
     name: wf/bootstrapjs
-    version: 1.7.0
+    version: '1.6'
   -
     name: wf/dom
     version: '1.0'
@@ -61,6 +65,9 @@ plugin:
   -
     name: string/array
     version: '1.2'
+  -
+    name: theme/include
+    version: 1.8.4
 sys:
   -
     name: mercury
