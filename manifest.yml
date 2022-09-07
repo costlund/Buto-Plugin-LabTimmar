@@ -1,5 +1,9 @@
-version: 1.2.19
+version: 1.2.20
 history:
+  1.2.20:
+    date: '2022-09-07'
+    title: Versions
+    description: 'Versions update.'
   1.2.19:
     date: '2022-08-31'
     title: Versions
@@ -107,7 +111,7 @@ plugin:
     version: '1.0'
   -
     name: form/form_v1
-    version: 1.53.0
+    version: 1.54.0
   -
     name: wf/table
     version: 1.31.1
