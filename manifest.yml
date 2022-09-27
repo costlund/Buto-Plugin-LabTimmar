@@ -1,5 +1,9 @@
-version: 1.2.20
+version: 1.2.21
 history:
+  1.2.21:
+    date: '2022-09-27'
+    title: Versions
+    description: 'Versions update.'
   1.2.20:
     date: '2022-09-07'
     title: Versions
@@ -99,10 +103,10 @@ plugin:
     version: 1.2.4
   -
     name: wf/yml
-    version: 1.4.1
+    version: 1.5.0
   -
     name: wf/mysql
-    version: 1.14.8
+    version: 1.14.9
   -
     name: google/calendar
     version: null
@@ -111,10 +115,10 @@ plugin:
     version: '1.0'
   -
     name: form/form_v1
-    version: 1.54.0
+    version: 1.54.2
   -
     name: wf/table
-    version: 1.31.1
+    version: 1.31.3
   -
     name: wf/ajax
     version: 1.4.2
@@ -135,7 +139,7 @@ plugin:
     version: 1.3.0
   -
     name: theme/include
-    version: 1.14.0
+    version: 1.14.1
 sys:
   -
     name: mercury
