@@ -1,5 +1,9 @@
-version: 1.2.24
+version: 1.2.25
 history:
+  1.2.25:
+    date: '2023-03-09'
+    title: Versions
+    description: 'Versions update.'
   1.2.24:
     date: '2023-01-02'
     title: Versions
@@ -127,10 +131,10 @@ plugin:
     version: '1.0'
   -
     name: form/form_v1
-    version: 1.57.1
+    version: 1.58.1
   -
     name: wf/table
-    version: 1.32.1
+    version: 1.33.0
   -
     name: wf/ajax
     version: 1.4.2
@@ -151,7 +155,7 @@ plugin:
     version: 1.3.0
   -
     name: theme/include
-    version: 1.16.0
+    version: 1.16.4
 sys:
   -
     name: mercury
