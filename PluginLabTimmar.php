@@ -30,7 +30,7 @@ class PluginLabTimmar{
       /**
        * Layout path.
        */
-      wfArray::set($GLOBALS, 'sys/layout_path', '/plugin/lab/timmar/layout');
+      wfGlobals::setSys('layout_path', '/plugin/lab/timmar/layout');
       /**
        * Settings.
        */
@@ -106,7 +106,7 @@ class PluginLabTimmar{
     if(is_null($end)){
       $end = date('Y-m-d', strtotime(date('Y-m-d'). ' + 365 days'));
     }
-    if(strlen($end)==10){
+    if(wfPhpfunc::strlen($end)==10){
       $end .= ' 23:59:59';
     }
     $data = new PluginWfArray();
@@ -232,7 +232,7 @@ class PluginLabTimmar{
       $x = new PluginStringArray();
       $d = $x->from_br($item->get('description'));
       foreach ($d as $v) {
-        if(strstr($v, ': ')){
+        if(wfPhpfunc::strstr($v, ': ')){
           $v = new PluginWfArray($x->from_char($v, ': '));
           $projects->set("$key/params/".$v->get('0'), $v->get('1'));
         }
@@ -309,7 +309,7 @@ class PluginLabTimmar{
       /**
        * Replace in description.
        */
-      $report->set("projects/$key/description", str_replace("\n", '<br>', $report->get("projects/$key/description")));
+      $report->set("projects/$key/description", wfPhpfunc::str_replace("\n", '<br>', $report->get("projects/$key/description")));
     }
     $projects = array();
     foreach ($report->get('projects') as $key => $value) {
@@ -342,7 +342,7 @@ class PluginLabTimmar{
      * Calendar fix.
      */
     $report->set('calendar/X-WR-CALDESC', $this->clean($report->get('calendar/X-WR-CALDESC')));
-    $report->set('calendar/X-WR-CALDESC', str_replace("\n", '<br>', $report->get('calendar/X-WR-CALDESC')));
+    $report->set('calendar/X-WR-CALDESC', wfPhpfunc::str_replace("\n", '<br>', $report->get('calendar/X-WR-CALDESC')));
     /**
      * Element.
      */
@@ -354,14 +354,14 @@ class PluginLabTimmar{
     return $element;
   }
   private function clean($str){
-    $str = substr($str, 0, strlen($str)-1);
-    $str = str_replace("\\n", PHP_EOL, $str);    
+    $str = wfPhpfunc::substr($str, 0, wfPhpfunc::strlen($str)-1);
+    $str = wfPhpfunc::str_replace("\\n", PHP_EOL, $str);    
     $str = preg_replace("'\r '","", $str);
     $str = stripslashes($str);
     return $str;
   }
   private function date($date){
-    $len = strlen($date);
+    $len = wfPhpfunc::strlen($date);
     if($len == 9){
       $date = date('Y-m-d', strtotime($date));
     }elseif($len == 17){
