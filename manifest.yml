@@ -1,5 +1,9 @@
-version: 1.3.0
+version: 1.3.1
 history:
+  1.3.1:
+    date: '2023-09-11'
+    title: Versions
+    description: 'Versions update.'
   1.3.0:
     date: '2023-08-17'
     title: 'PHP 8.2'
@@ -137,37 +141,37 @@ history:
 plugin:
   -
     name: wf/form_v2
-    version: 1.4
+    version: 1.5.0
   -
     name: wf/array
-    version: 1.2.4
+    version: 1.5.0
   -
     name: wf/yml
-    version: 1.5.1
+    version: 1.8.0
   -
     name: wf/mysql
-    version: 1.15.0
+    version: 1.17.0
   -
     name: google/calendar
-    version: 1.1.0
+    version: 1.2.0
   -
     name: wf/bootstrap
-    version: '1.0'
+    version: 1.1.0
   -
     name: form/form_v1
-    version: 1.59.1
+    version: 1.64.0
   -
     name: wf/table
-    version: 1.34.1
+    version: 1.35.0
   -
     name: wf/ajax
     version: 1.4.2
   -
     name: wf/bootstrapjs
-    version: 1.14.0
+    version: 1.15.0
   -
     name: wf/dom
-    version: '1.0'
+    version: 1.1.0
   -
     name: wf/callbackjson
     version: '1.0'
@@ -176,10 +180,10 @@ plugin:
     version: null
   -
     name: string/array
-    version: 1.3.0
+    version: 1.4.0
   -
     name: theme/include
-    version: 1.20.3
+    version: 1.20.4
 sys:
   -
     name: mercury
